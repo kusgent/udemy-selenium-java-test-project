@@ -1,5 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class MainPage {
     private WebDriver driver;
@@ -8,28 +10,57 @@ public class MainPage {
         this.driver = driver;
     }
 
-    private By signInButton = By.xpath("//a[contains(text(), 'Sign in')]");
-    private By signUpButton = By.xpath("(//a[contains(text(), 'Sign up')])[1]");
-    private By emailField = By.xpath("//input[@id='user_email']");
-    private By signUpFormButton = By.xpath("//button[@type='submit']");
+//    private By signInButton = By.xpath("//a[contains(text(), 'Sign in')]");
+//    private By signUpButton = By.xpath("(//a[contains(text(), 'Sign up')])[1]");
+//    private By emailField = By.xpath("//input[@id='user_email']");
+//    private By signUpFormButton = By.xpath("//button[@type='submit']");
+
+    @FindBy(xpath = "//a[contains(text(), 'Sign in')]")
+    private WebElement signInButton;
+    @FindBy(xpath = "(//a[contains(text(), 'Sign up')])[1]")
+    private WebElement signUpButton;
+    @FindBy(xpath = "//input[@id='user_email']")
+    private WebElement emailField;
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement signUpFormButton;
+
+//    public LoginPage clickSignIn() {
+//        driver.findElement(signInButton).click();
+//        return new LoginPage(driver);
+//    }
+//
+//    public SignUpPage clickSignUp() {
+//        driver.findElement(signUpButton).click();
+//        return new SignUpPage(driver);
+//    }
+//
+//    public SignUpPage clickSignUpFormButton() {
+//        driver.findElement(signUpFormButton).click();
+//        return new SignUpPage(driver);
+//    }
+//
+//    public MainPage typeEmail(String email) {
+//        driver.findElement(emailField).sendKeys(email);
+//        return this;
+//    }
 
     public LoginPage clickSignIn() {
-        driver.findElement(signInButton).click();
+        signInButton.click();
         return new LoginPage(driver);
     }
 
     public SignUpPage clickSignUp() {
-        driver.findElement(signUpButton).click();
+        signUpButton.click();
         return new SignUpPage(driver);
     }
 
     public SignUpPage clickSignUpFormButton() {
-        driver.findElement(signUpFormButton).click();
+        signUpFormButton.click();
         return new SignUpPage(driver);
     }
 
     public MainPage typeEmail(String email) {
-        driver.findElement(emailField).sendKeys(email);
+        emailField.sendKeys(email);
         return this;
     }
 
