@@ -1,39 +1,43 @@
 import org.junit.*;
 
 public class MainClassTest {
-    @BeforeClass
-    public void beforeClassMethod() {
-
-    }
-
-    @Before
-    public void setUp() {
-
-    }
+//    @BeforeClass
+//    public void beforeClassMethod() {
+//
+//    }
+//
+//    @Before
+//    public void setUp() {
+//
+//    }
 
     @Test
     public void method1() {
-
+        Assert.assertTrue("Value are not true!", 1 + 1 == 2);
     }
 
     @Test
-    @Ignore
     public void method2() {
-
+        Assert.assertFalse("Value are true!",1 + 1 == 2);
     }
 
     @Test
     public void method3() {
-
+        Assert.assertEquals(11, 5 + 5);
     }
 
-    @After
-    public void tearDown() {
-
+    @Test
+    public void method4() {
+        Assert.assertNotEquals(11, 5 + 5);
     }
 
-    @AfterClass
-    public void afterClassMethod() {
-
-    }
+//    @After
+//    public void tearDown() {
+//
+//    }
+//
+//    @AfterClass
+//    public void afterClassMethod() {
+//
+//    }
 }
